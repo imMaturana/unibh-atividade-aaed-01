@@ -36,31 +36,6 @@ fn main() {
         }
 
         println!("\nRepresentação da Matriz.");
-        display_matrix(&mut matrix_str);
-    }
-}
-
-// mesma brisa da função matrix::sum().
-fn display_matrix(matrix: &mut [[&str; 12]; 12]) {
-    let mut column: usize = matrix.len();
-    
-    for row in 1..matrix.len() - 1 {
-        match row {
-            1..=5 => column -= 1,
-            7..=10 => column += 1,
-            _ => (),
-        }
-
-        for i in column..matrix.len() {
-            matrix[row][i] = "X";
-        }
-    }
-
-    for i in 0..matrix.len() {
-        for j in 0..matrix.len() {
-            print!("{} ", matrix[i][j]);
-        }
-
-        println!();
+        matrix::display(&mut matrix_str);
     }
 }

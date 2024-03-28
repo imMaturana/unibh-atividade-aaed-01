@@ -24,3 +24,28 @@ pub fn avg(matrix: [[f64; 12]; 12]) -> f64 {
 
     sum / elems as f64
 }
+
+// mesma brisa da função sum().
+pub fn display(matrix: &mut [[&str; 12]; 12]) {
+    let mut column: usize = matrix.len();
+    
+    for row in 1..matrix.len() - 1 {
+        match row {
+            1..=5 => column -= 1,
+            7..=10 => column += 1,
+            _ => (),
+        }
+
+        for i in column..matrix.len() {
+            matrix[row][i] = "X";
+        }
+    }
+
+    for i in 0..matrix.len() {
+        for j in 0..matrix.len() {
+            print!("{} ", matrix[i][j]);
+        }
+
+        println!();
+    }
+}
